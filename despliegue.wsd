@@ -1,0 +1,105 @@
+@startuml
+title ejemplo de despliegue
+
+' estilos
+skinparam roundCorner 10
+skinparam DefaultFontName "Consolas"
+skinparam DefaultFontColor #263238
+skinparam ArrowColor #263238
+
+skinparam database {
+    ' SQL
+    BackgroundColor<<mssql>> #fff59d
+    BorderColor<<mssql>> #cbc26d
+
+    BackgroundColor<<mysql>> #81d4fa
+    BorderColor<<mysql>> #4ba3c7
+
+    BackgroundColor<<postgresql>> #90caf9
+    BorderColor<<postgresql>> #5d99c6
+
+    BackgroundColor<<sqlite>> #80deea
+    BorderColor<<sqlite>> #4bacb8
+
+    ' NoSQL
+    BackgroundColor<<redis>> #ef9a9a
+    BorderColor<<redis>> #ba6b6c
+
+    BackgroundColor<<mongodb>> #a5d6a7
+    BorderColor<<mongodb>> #75a478
+
+    BackgroundColor<<firestore>> #ffe082
+    BorderColor<<firestore>> #caae53
+}
+
+skinparam queue {
+    BackgroundColor<<kafka>> #ffcc80
+    BorderColor<<kafka>> #ca9b52
+}
+
+skinparam rectangle {
+    BackgroundColor<<front>> #52c7b8
+    BorderColor<<front>> #009688
+
+    BackgroundColor<<api>> #6ec6ff
+    BorderColor<<api>> #2196f3
+
+    BackgroundColor<<consola>> #d05ce3
+    BorderColor<<consola>> #9c27b0
+
+    BackgroundColor<<android>> #80e27e
+    BorderColor<<android>> #4caf50
+
+    BackgroundColor<<ios>> #8eacbb
+    BorderColor<<ios>> #607d8b
+}
+
+skinparam frame {
+    BackgroundColor #e3f2fd
+    BorderColor #b1bfca
+}
+
+skinparam actor {
+    BackgroundColor #4f5b62
+    BorderColor #263238
+}
+
+skinparam cloud {
+    BackgroundColor #9fa8da
+    BorderColor #6f79a8
+}
+
+skinparam note {
+    BackgroundColor #ffecb3
+    BorderColor #cbba83
+}
+
+' SQL
+database "MS SQL" <<mssql>> as mssql
+database "MySQL" <<mysql>> as mysql
+database "PostgreSQL" <<postgresql>> as postgresql
+database "SQLite" <<sqlite>> as sqlite
+
+' NoSQL
+database "Redis" <<redis>> as redis
+database "MongoDB" <<mongodb>> as mongodb
+database "FireStore" <<firestore>> as firestore
+
+' apps
+rectangle "Front" <<front>> as front
+rectangle "API" <<api>> as api
+rectangle "Consola" <<consola>> as consola
+
+' mobile
+rectangle "Android" <<android>> as android
+rectangle "IOS" <<ios>> as ios
+
+cloud "Cloud" as customCloud
+actor "User" as user
+frame "frame" as frame
+note right of user
+ notas 
+endnote
+
+
+@enduml

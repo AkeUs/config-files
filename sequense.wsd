@@ -1,0 +1,93 @@
+@startuml
+title ejemplo de secuencia
+
+' configuracion
+hide footbox
+autonumber
+skinparam BoxPadding 10
+skinparam ParticipantPadding 10
+'skinparam maxMessageSize 150
+
+' estilos
+skinparam DefaultFontName "Consolas"
+skinparam DefaultFontColor #424242
+skinparam ArrowColor #424242
+skinparam lifelineStrategy solid
+
+skinparam sequence {
+    'MessageAlign center
+    
+    LifeLineBorderColor #424242
+    LifeLineBackgroundColor #80cbc4
+
+    GroupBackgroundColor #e6ee9c
+    GroupBorderColor #b3bc6d
+
+    BoxBackgroundColor #e3f2fd
+    BoxBorderColor #b1bfca
+}
+
+skinparam actor {
+    BackgroundColor #4f5b62
+    BorderColor #263238
+}
+
+skinparam database {
+    BackgroundColor<<ms sql>> #fff59d
+    BorderColor<<ms sql>> #cbc26d
+}
+
+skinparam participant {
+    BackgroundColor<<front>> #52c7b8
+    BorderColor<<front>> #009688
+
+    BackgroundColor<<api>> #6ec6ff
+    BorderColor<<api>> #2196f3
+
+    BackgroundColor<<consola>> #d05ce3
+    BorderColor<<consola>> #9c27b0
+
+    BackgroundColor<<android>> #80e27e
+    BorderColor<<android>> #4caf50
+
+    BackgroundColor<<ios>> #8eacbb
+    BorderColor<<ios>> #607d8b
+}
+
+skinparam note {
+    BackgroundColor #ffecb3
+    BorderColor #cbba83
+}
+
+' objetos
+box "box #1"
+    participant "Participant #1" as participant1 <<api>>
+    participant "Participant #2" as participant2 <<api>>
+    database "Database" as db <<ms sql>>
+    participant "Participant #3" as participant3 <<api>>
+end box
+
+box "box #2"
+    participant "Participant #4" as participant4 <<api>>
+end box
+
+activate participant2
+participant1 -> participant2 : action
+participant2 -> participant3 : action
+participant2 -> participant1 : action
+deactivate participant2
+
+participant4 -> participant3 : action
+
+
+activate participant4
+participant4 -> participant2 : action
+activate participant2 
+participant2 -> db : action
+db -> participant2 : action
+participant2 -> participant4 : action
+deactivate participant2
+deactivate participant4
+
+@enduml
+

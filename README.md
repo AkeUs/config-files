@@ -1,2 +1,3 @@
-# plantuml-styles
-repositorio de estilos para diagramas PlantUML
+# Config Files
+
+Archivos de configuracion personales de aplicaciones

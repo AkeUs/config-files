@@ -80,6 +80,11 @@ skinparam note {
     BorderColor #cbba83
 }
 
+skinparam component {
+    BackgroundColor<<module>> #e6ee9c
+    BorderColor<<module>> #b3bc6d
+}
+
 ' SQL
 database "MSSQL" <<mssql>> as mssql
 database "MySQL" <<mysql>> as mysql
@@ -102,6 +107,7 @@ rectangle "Consola" <<consola>> as consola
 rectangle "Android" <<android>> as android
 rectangle "IOS" <<ios>> as ios
 
+component "Componente" <<module>> as componente
 cloud "Cloud" as customCloud
 actor "User" as user
 frame "frame" as frame

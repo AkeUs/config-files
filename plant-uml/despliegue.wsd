@@ -21,6 +21,12 @@ skinparam database {
     BackgroundColor<<sqlite>> #80deea
     BorderColor<<sqlite>> #4bacb8
 
+    BackgroundColor<<oracle>> #ef5350
+    BorderColor<<oracle>> #b61827
+
+    BackgroundColor<<mariadb>> #a1887f
+    BorderColor<<mariadb>> #725b53
+
     ' NoSQL
     BackgroundColor<<redis>> #ef9a9a
     BorderColor<<redis>> #ba6b6c
@@ -75,9 +81,11 @@ skinparam note {
 }
 
 ' SQL
-database "MS SQL" <<mssql>> as mssql
+database "MSSQL" <<mssql>> as mssql
 database "MySQL" <<mysql>> as mysql
 database "PostgreSQL" <<postgresql>> as postgresql
+database "Oracle" <<oracle>> as oracle
+database "MariaDB" <<mariadb>> as mariadb
 database "SQLite" <<sqlite>> as sqlite
 
 ' NoSQL
